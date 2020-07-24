@@ -1,17 +1,17 @@
 {% set name = "pept" %}
-{% set version = "0.2.1" %}
+{% set version = "0.2.2" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: b044cc5b071d210816f9f7282b8330c17b3a624ff2bbc708b011ac06124663d3
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 03efcab9245f1917e49db45d5d87e172e8dc219df0b02b4da0fb23f10cdf0cf9
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -60,9 +60,7 @@ about:
   license: GPL-3.0-or-later
   license_file: LICENSE
   summary: >
-    A Python library that unifies Positron Emission Particle Tracking (PEPT)
-    research, including tracking, simulation, data analysis and visualisation
-    tools.
+    A Python library that unifies Positron Emission Particle Tracking (PEPT) research, including tracking, simulation, data analysis and visualisation tools.
   doc_url: https://pept.readthedocs.io/en/latest/
   dev_url: https://github.com/uob-positron-imaging-centre/pept
 
