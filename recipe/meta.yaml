@@ -1,5 +1,5 @@
 {% set name = "pept" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 03efcab9245f1917e49db45d5d87e172e8dc219df0b02b4da0fb23f10cdf0cf9
+  sha256: 3dd09671990e32e87552dbd49e08cee83d8dce0129072ab31fd785ef7e56cf25
 
 build:
   number: 2
@@ -33,6 +33,7 @@ requirements:
     - six >=1.12.0
     - tqdm >=4.41.1
     - pandas >=1.0.5
+    - cma >=3.0.3
 
 test:
   imports:
