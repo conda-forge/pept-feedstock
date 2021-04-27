@@ -1,5 +1,5 @@
 {% set name = "pept" %}
-{% set version = "0.2.4" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3ec006d7aa2cf8beedd8f371c3938c2c242519be25e8d7344f0aef06c91daa3c
+  sha256: 31a7c2893010f3b467d76e4ea4cf11d897705b3b4757fafd398ffbe306e785d1
 
 build:
   number: 0
@@ -16,6 +16,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
   host:
     - cython >=0.29.14
     - numpy
@@ -48,7 +49,9 @@ test:
     - pept.tracking
     - pept.tracking.birmingham_method
     - pept.tracking.peptml
+    - pept.tracking.fpi
     - pept.tracking.trajectory_separation
+    - pept.processing
     - pept.utilities
     - pept.utilities.cutpoints
     - pept.utilities.misc
