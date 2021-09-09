@@ -41,12 +41,6 @@ requirements:
 test:
   imports:
     - pept
-  requires:
-    - pytest
-  source_files:
-    - tests
-  commands:
-    - pytest tests
 
 about:
   home: https://github.com/uob-positron-imaging-centre/pept
