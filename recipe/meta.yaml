@@ -1,5 +1,5 @@
 {% set name = "pept" %}
-{% set version = "0.3.2" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 87d69f4f82cf67c0afa8f3900799fd8c834c5bb0a315c7d021861971c02cedce
+  sha256: 1f4f5a64715bfe9552aba4e13ee5f96534e402293162a6c3396d19b77e1fb5d2
 
 build:
   number: 0
+  skip: true  # [py<37]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -19,45 +20,27 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - cython >=0.29.14
-    - numpy
+    - numpy >=1.18.3
     - pip
     - python
   run:
-    - cython >=0.29.14
+    - python
+    - cython >=0.29.16
     - hdbscan >=0.8.26
-    - joblib >=0.15.1
-    - matplotlib-base >=3.2.2
+    - joblib >=0.14.1
+    - matplotlib-base >=3.2.1
     - {{ pin_compatible('numpy') }}
     - plotly >=4.4.1
-    - python
     - scipy >=1.4.1
-    - six >=1.12.0
     - tqdm >=4.41.1
-    - pandas >=1.0.5
+    - pandas >=1.0.3
     - cma >=3.0.3
+    - beartype >=0.7.1
+    - natsort >=5.5.0
 
 test:
   imports:
     - pept
-    - pept.base
-    - pept.cookbook
-    - pept.diagnostics
-    - pept.scanners
-    - pept.scanners.modular_camera
-    - pept.scanners.parallel_screens
-    - pept.simulation
-    - pept.tracking
-    - pept.tracking.birmingham_method
-    - pept.tracking.peptml
-    - pept.tracking.fpi
-    - pept.tracking.trajectory_separation
-    - pept.processing
-    - pept.utilities
-    - pept.utilities.cutpoints
-    - pept.utilities.misc
-    - pept.utilities.parallel
-    - pept.utilities.traverse
-    - pept.visualisation
 
 about:
   home: https://github.com/uob-positron-imaging-centre/pept
