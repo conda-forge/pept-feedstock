@@ -10,13 +10,14 @@ source:
   sha256: 1f4f5a64715bfe9552aba4e13ee5f96534e402293162a6c3396d19b77e1fb5d2
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<37]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - cython >=0.29.14
@@ -29,7 +30,6 @@ requirements:
     - hdbscan >=0.8.26
     - joblib >=0.14.1
     - matplotlib-base >=3.2.1
-    - {{ pin_compatible('numpy') }}
     - plotly >=4.4.1
     - scipy >=1.4.1
     - tqdm >=4.41.1
